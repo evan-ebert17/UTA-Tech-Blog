@@ -16,4 +16,23 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.delete('/:id', async (req, res) => {
+  try {
+    const postsData = await Posts.destroy({
+      where: {
+        id: req.params.id,
+        // user_id: req.session.user_id,
+      },
+    });
+
+    if (!postsData) {
+      res.status(404).json({ message: 'No project found with this id!' });
+      return;
+    }
+
+    res.status(200).json(postsData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 module.exports = router;

@@ -1,6 +1,25 @@
-<h1>Homepage coming soon!</h1>
+<h1>Homepage</h1>
 
-{{#each posts}}
-<h1>{{title}}</h1>
-
+{{#each postSer as |posts| }}
+<div class="row mb-4 project">
+  <div class="col-md-5">
+    {{!-- <h2>
+      <a href="/dashboard/{{post.id}}">{{post.title}}</a>
+    </h2> --}}
+    <h2>
+        {{posts.title}}
+    </h2>
+    <p>Posted by {{posts.user_id}}</p>
+  </div>
+  <div class="col-md-7">
+    <p>
+      {{posts.body}}
+    </p>
+    <div>
+        <button class="post" data-id="{{posts.id}}">Delete Post</button>
+     </div>   
+  </div>
+</div>
 {{/each}}
+
+<script src="./js/delBlogPost.js"></script>

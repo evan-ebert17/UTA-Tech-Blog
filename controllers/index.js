@@ -8,15 +8,12 @@ router.use('/api', apiRoutes)
 router.get('/', async (req, res) => {
     try {
       // Get all post and JOIN with user data
-      const postData = await Posts.findAll({
-        // include: [
-        //   {
-        //     model: Posts,
-        //     attributes: ['name'],
-        //   },
-        // ],
-      });
-  
+      const postData = await Posts.findAll(
+        //   where: {
+        //       title
+        //   }
+      );
+      console.log(postData);
       // Serialize data so the template can read it
       const postSer = postData.map((post) => post.get({ plain: true }));
   
@@ -25,7 +22,6 @@ router.get('/', async (req, res) => {
         postSer, 
         logged_in: req.session.logged_in 
       });
-      console.log('hello');
     } catch (err) {
       res.status(500).json(err);
     }

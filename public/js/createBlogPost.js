@@ -15,18 +15,17 @@ const createPostHandler = async (event) => {
       const data = await response.json()
       console.log(data)
   
-    //   if (response.ok) {
-    //     // If successful, redirect the browser to the home page
-    //     setTimeout(() => {
-    //       document.location.replace('/');
-    //     }, 1000) 
+      if (response.ok) {
+        // If successful, redirect the browser to the home page
+        setTimeout(() => {
+          document.location.replace('/');
+        }, 1000) 
        
-      //} else {
-        //alert(response.statusText);
-     // }
+      } else {
+        alert(response.statusText);
+     }
     }
   };
-  
   document
     .querySelector('.create-post')
     .addEventListener('click', createPostHandler);

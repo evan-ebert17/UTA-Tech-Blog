@@ -17,7 +17,7 @@ const loginFormHandler = async (event) => {
         // If successful, redirect the browser to the home page
         setTimeout(() => {
           document.location.replace('/');
-        }, 2000) 
+        }, 3000) 
        
       } else {
         alert(response.statusText);
